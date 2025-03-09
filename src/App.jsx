@@ -22,7 +22,7 @@ function App() {
 					mb={8}
 				>
 					<Text as={"span"} bgGradient={"linear(to-r, cyan.400, blue.500)"} bgClip={"text"}>
-						My Best Friends!!
+						My Bestest Friends!!
 					</Text>
 					🚀
 				</Text>
@@ -32,5 +32,6 @@ function App() {
 		</Stack>
 	);
 }
+
 
 export default App;

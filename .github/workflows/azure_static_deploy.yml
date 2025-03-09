@@ -3,7 +3,7 @@ name: Deploy web app to Azure Static Web Apps
 env:
   APP_LOCATION: "/" # location of your client code
   #API_LOCATION: "api"
-  OUTPUT_LOCATION: "dist" # location of client code build output
+  OUTPUT_LOCATION: "dist" # location of client code build output. Vite apps use dist
 
 on:
   push:
@@ -67,5 +67,3 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "close"
-
-

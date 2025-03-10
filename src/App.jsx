@@ -4,6 +4,7 @@ import UserGrid from "./components/UserGrid";
 import { useState } from "react";
 
 export const BASE_URL = import.meta.env.VITE_REACT_APP_API_BASE_URL;
+console.log("BASE_URL:", BASE_URL)
 
 function App() {
 	const [users, setUsers] = useState([]);

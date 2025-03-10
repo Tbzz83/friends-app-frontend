@@ -2,7 +2,7 @@ name: Deploy web app to Azure Static Web Apps
 
 env:
   APP_LOCATION: "/" # location of your client code
-  API_LOCATION: "api"
+  #API_LOCATION: "api"
   OUTPUT_LOCATION: "dist" # location of client code build output. Vite apps use dist
 
 on:
@@ -44,7 +44,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: ${{ env.APP_LOCATION }}
-          api_location: ${{ env.API_LOCATION }}
+          #api_location: ${{ env.API_LOCATION }}
           output_location: ${{ env.OUTPUT_LOCATION }}
 
   close_pull_request:

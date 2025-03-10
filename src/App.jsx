@@ -4,7 +4,6 @@ import UserGrid from "./components/UserGrid";
 import { useState } from "react";
 
 export const BASE_URL = import.meta.env.VITE_REACT_APP_API_BASE_URL;
-console.log("BASE_URL:", BASE_URL)
 
 function App() {
 	const [users, setUsers] = useState([]);
@@ -23,8 +22,7 @@ function App() {
 					mb={8}
 				>
 					<Text as={"span"} bgGradient={"linear(to-r, cyan.400, blue.500)"} bgClip={"text"}>
-						My Bestest Friends!! 
-						{BASE_URL}
+						My Bestest Friends!!
 					</Text>
 					🚀
 				</Text>

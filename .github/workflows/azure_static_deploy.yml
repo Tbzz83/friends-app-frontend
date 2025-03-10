@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -29,13 +30,24 @@ jobs:
         with:
           submodules: true
       # Have to create the .env file that our frontend application uses
-      - name: Create Env
+      - name: Create Env for Develop
+        if: github.ref == 'refs/heads/develop'
+        run: | 
+          #!/bin/bash
+          touch .env
+          echo VITE_REACT_APP_API_BASE_URL=${{ vars.VITE_REACT_APP_API_BASE_URL_DEVELOP }}>> .env
+          echo "check .env is valid..."
+          cat .env
+
+      - name: Create Env for Main
+        if: github.ref == 'refs/heads/main'
         run: | 
           #!/bin/bash
           touch .env
           echo VITE_REACT_APP_API_BASE_URL=${{ vars.VITE_REACT_APP_API_BASE_URL }}>> .env
           echo "check .env is valid..."
           cat .env
+
       - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9
         with:

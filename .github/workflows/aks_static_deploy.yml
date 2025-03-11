@@ -25,11 +25,9 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and Push to ACR
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: ${{ secrets.IMAGE_TAG }}
-          file: Dockerfile
+        run: |
+          docker build . -t ${{ secrets.AZURE_URL }}/${{ github.repository }}:${{ github.sha }}
+          docker push ${{ secrets.AZURE_URL }}/${{ github.repository }}:${{ github.sha }}
 
 #  deploy:
 #      runs-on: ubuntu-22.04

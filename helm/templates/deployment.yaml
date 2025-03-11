@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Namespace }}
+  name: {{ .Release.Namespace }} 
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
@@ -20,7 +20,7 @@ spec:
             - containerPort: {{ .Values.containerPort }}
           env:
             - name: MY_APP_API_BASE_URL
-              value: friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.svc.cluster.local/api
+              value: friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.svc.cluster.local:5000/api
          
       imagePullSecrets:
         - name: {{ .Values.dockerConfigJson.secretName }}

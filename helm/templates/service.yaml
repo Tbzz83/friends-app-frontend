@@ -9,4 +9,4 @@ spec:
     app: {{ .Release.Namespace }}
   ports:
     - port: {{ .Values.containerPort }}
-      targetPort: 8080
+      targetPort: 80

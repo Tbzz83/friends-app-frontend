@@ -19,6 +19,7 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
           env:
+              # We can provide a runtime environment variable because of ../../env.sh that uses sed to modify the nginx html
             - name: MY_APP_API_BASE_URL
               #value: http://friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.svc.cluster.local:5000/api
               value: http://4.152.121.50:5000/api

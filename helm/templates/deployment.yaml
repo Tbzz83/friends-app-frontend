@@ -20,6 +20,6 @@ spec:
             - containerPort: {{ .Values.containerPort }}
           env:
             - name: MY_APP_API_BASE_URL
-              value: "https://temporary/api"
+              value: friends-app-backend/api
       imagePullSecrets:
         - name: {{ .Values.dockerConfigJson.secretName }}

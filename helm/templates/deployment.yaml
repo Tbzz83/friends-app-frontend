@@ -20,7 +20,8 @@ spec:
             - containerPort: {{ .Values.containerPort }}
           env:
             - name: MY_APP_API_BASE_URL
-              value: http://friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.svc.cluster.local:5000/api
+              #value: http://friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.friends-app-backend-{{ .Release.Namespace | splitList "-" | last }}.svc.cluster.local:5000/api
+              value: http://4.152.121.50:5000/api
          
       imagePullSecrets:
         - name: {{ .Values.dockerConfigJson.secretName }}
